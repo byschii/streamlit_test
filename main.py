@@ -13,7 +13,7 @@ pensioni_parsed = np.array(pensioni_parsed)
 streamlit.write(pd.DataFrame(pensioni_parsed, columns=["#num", "€", "media"]))
 
 risp = streamlit.slider("risparmio su pensione minima", min_value=0, max_value=30, value=None, step=2)
-inc = streamlit.slider("operatore incremento rispatio", min_value=1.00, max_value=2.5, value=None, step=0.2)
+inc = streamlit.slider("operatore incremento rispatio", min_value=1.00, max_value=2.5, value=None, step=0.02)
 
 def calculate_risp(exp_inc, risp_min):
     risparmio = []
