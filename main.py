@@ -31,7 +31,7 @@ def calculate_risp(e, r):
 
 
 streamlit.write(
-    calculate_risp(inc, risp)
+    sum(calculate_risp(inc, risp))
 )
 
 
