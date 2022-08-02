@@ -29,7 +29,7 @@ array_dei_risparmi_tot, array_dei_risparmi = calculate_risp(inc, risp)
 streamlit.write(  array_dei_risparmi_tot )
 streamlit.write(  array_dei_risparmi )
 streamlit.write(
-    "Quantita Risparmiata", array_dei_risparmi.sum() // 1_000_000, "kk"
+    "Quantita Risparmiata", array_dei_risparmi_tot.sum() // 1_000_000, "kk"
 )
 
 
