@@ -1,3 +1,3 @@
 import streamlit
 
-print("X")
+streamlit.write("X")
