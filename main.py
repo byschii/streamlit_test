@@ -24,7 +24,7 @@ def calculate_risp(e, r):
     return risparmio
 
 array_dei_risparmi = calculate_risp(inc, risp)
-streamlit.write(str(np.around(np.array(array_dei_risparmi))))
+streamlit.write(str(np.trunk(np.array(array_dei_risparmi)) ))
 streamlit.write(
     "Quantita Risparmiata", sum(array_dei_risparmi) // 1_000_000, "kk"
 )
