@@ -17,17 +17,14 @@ inc = streamlit.slider("operatore incremento rispatio", min_value=1.00, max_valu
 
 def calculate_risp(e, r):
     risparmio = []
-    risparmio2 = []
     for i, (_qt, _sum, _avg) in enumerate(pensioni_parsed):
         # print(_sum, _sum-(_qt*15*i), _qt*15*i)
         risp = r*i**e
-        risp2 = (r+1)*i**e
         risparmio.append(_qt*risp)
-        risparmio2.append(_qt*risp2)
     return risparmio
 
 array_dei_risparmi = calculate_risp(inc, risp)
-streamlit.write(str(array_dei_risparmi))
+streamlit.write(str(np.arrau(array_dei_risparmi).round()))
 streamlit.write(
     "Quantita Risparmiata", sum(array_dei_risparmi) // 1_000_000, "kk"
 )
