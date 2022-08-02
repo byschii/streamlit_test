@@ -15,18 +15,21 @@ streamlit.write(pd.DataFrame(pensioni_parsed, columns=["#num", "€", "media"]))
 risp = streamlit.slider("risparmio su pensione minima", min_value=0, max_value=30, value=None, step=2)
 inc = streamlit.slider("operatore incremento rispatio", min_value=1.00, max_value=2.5, value=None, step=0.2)
 
-def calculate_risp(e, r):
+def calculate_risp(exp_inc, risp_min):
     risparmio = []
+    array_dei_risparmi = []
     for i, (_qt, _sum, _avg) in enumerate(pensioni_parsed):
         # print(_sum, _sum-(_qt*15*i), _qt*15*i)
-        risp = r*i**e
+        risp = risp_min*i**exp_inc
         risparmio.append(_qt*risp)
-    return risparmio
+        array_dei_risparmi.append(risp)
+    return np.array(risparmio), np.array(array_dei_risparmi)
 
-array_dei_risparmi = calculate_risp(inc, risp)
-streamlit.write(str(np.trunk(np.array(array_dei_risparmi)) ))
+array_dei_risparmi_tot, array_dei_risparmi = calculate_risp(inc, risp)
+streamlit.write(  array_dei_risparmi_tot )
+streamlit.write(  array_dei_risparmi )
 streamlit.write(
-    "Quantita Risparmiata", sum(array_dei_risparmi) // 1_000_000, "kk"
+    "Quantita Risparmiata", array_dei_risparmi.sum() // 1_000_000, "kk"
 )
 
 
